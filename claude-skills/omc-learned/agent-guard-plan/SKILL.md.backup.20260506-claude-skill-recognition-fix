@@ -1,0 +1,96 @@
+---
+name: agent-guard-plan
+description: 手动触发 agent-guard 检查：先检查当前 worktree，列出修改计划和验证计划，等待确认后再运行 agent-guard
+triggers:
+  - agent-guard
+  - guard check
+  - 一键触发
+  - 手动校验
+  - 修改计划
+  - 计划确认
+  - 确认后执行
+argument-hint: "[plan|run]"
+---
+
+# Agent Guard Plan
+
+## Purpose
+
+把 `agent-guard` 从“每次写代码后自动触发”改成“需要时手动触发”的检查点。
+
+默认流程：
+
+1. 只读检查当前仓库和改动范围。
+2. 列出范围、修改计划和验证计划。
+3. 等用户明确回复“确认”或“继续”。
+4. 再运行 `agent-guard check --mode worktree`。
+
+## Usage
+
+```bash
+/oh-my-claudecode:agent-guard-plan plan
+/oh-my-claudecode:agent-guard-plan run
+```
+
+`plan` 是默认模式。除非用户明确说“直接跑”，否则不要跳过计划确认。
+
+## Workflow
+
+### 1. Collect Context
+
+确认前只运行只读命令：
+
+```bash
+pwd
+git rev-parse --show-toplevel
+git status --short
+git diff --stat
+git diff --name-only
+git diff --cached --name-only
+```
+
+如果用户是要做未来代码修改，而不是检查已有 diff，只读取相关文件。前端任务需要说明是否检查过可复用的 `src/utils`、`src/hooks`、`src/contexts` 和已安装第三方库。
+
+### 2. Present Plan
+
+用这个结构输出：
+
+```markdown
+**范围**
+- ...
+
+**修改计划**
+1. ...
+
+**验证计划**
+- ...
+
+**需要确认**
+回复“确认”或“继续”后，我再执行 `agent-guard check --mode worktree`。
+```
+
+如果不需要改代码，只写：`不改代码，只运行手动 guard 校验`。
+
+### 3. Run Guard
+
+确认后在仓库根目录执行：
+
+```bash
+agent-guard check --mode worktree
+```
+
+如果命令不存在，先运行：
+
+```bash
+command -v agent-guard
+```
+
+报告入口缺失后停止，不要替换成无关检查。
+
+## Boundaries
+
+- 不要在每次 Edit / Write 后自动运行 `agent-guard`。
+- 不要运行全仓 TypeScript 重型检查，除非用户明确要求。
+- 不要创建测试代码。
+- 不要删除、移动或批量改写文件，除非用户明确确认。
+- 提交前的 Git hook staged 门禁不属于本 skill 的自动触发范围。

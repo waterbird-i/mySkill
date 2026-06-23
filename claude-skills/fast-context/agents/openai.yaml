@@ -1,0 +1,7 @@
+interface:
+  display_name: "Fast Context"
+  short_description: "Semantic code context retrieval"
+  default_prompt: "Use $fast-context to gather complete codebase context before planning this change."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,47 @@
+{
+  "name": "fast-context-skill",
+  "version": "0.1.0",
+  "description": "Agent Skill and CLI adaptation of fast-context-mcp that runs Windsurf Devstral semantic code search without an MCP server.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "fast-context-skill": "scripts/fast-context-search.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "agents/",
+    "references/",
+    "scripts/",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md"
+  ],
+  "scripts": {
+    "search": "node scripts/fast-context-search.mjs",
+    "test": "node --check scripts/fast-context-search.mjs && node --check scripts/lib/core.mjs && node scripts/fast-context-search.mjs --help >/dev/null && node test/cli.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oulkurt/fast-context-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oulkurt/fast-context-skill/issues"
+  },
+  "homepage": "https://github.com/oulkurt/fast-context-skill#readme",
+  "keywords": [
+    "agent-skill",
+    "skills-cli",
+    "codex",
+    "skill",
+    "fast-context",
+    "semantic-search",
+    "windsurf",
+    "devstral",
+    "code-search"
+  ],
+  "dependencies": {
+    "@vscode/ripgrep": "^1.15.9",
+    "sql.js": "^1.14.0",
+    "tree-node-cli": "^1.6.0"
+  }
+}
