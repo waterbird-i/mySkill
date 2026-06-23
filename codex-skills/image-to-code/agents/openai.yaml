@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image to Code"
+  short_description: "750px code, clean PNGs, Figma layers"
+  default_prompt: "Use $image-to-code to convert the selected UI image into responsive code, clean transparent PNG assets, and editable Figma-ready layers."
