@@ -1,4 +1,4 @@
-# myskill
+# mySkill
 
 Personal Codex, agent, and Claude Code skills backup.
 
