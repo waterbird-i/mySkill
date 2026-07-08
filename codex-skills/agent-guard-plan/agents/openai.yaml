@@ -1,7 +1,0 @@
-interface:
-  display_name: "Agent Guard Plan"
-  short_description: "Plan, confirm, then run agent-guard"
-  default_prompt: "Use $agent-guard-plan to inspect the current changes, list the modification and validation plan, and wait for confirmation before running agent-guard."
-
-policy:
-  allow_implicit_invocation: true

@@ -5,8 +5,8 @@ This repository backs up three local skill roots from this machine.
 ## Sources
 
 - `codex-skills/`
-  - Source: `~/.codex/skills`
-  - Direct `SKILL.md` files: 34
+  - Source: symlink to `~/.codex/skills`
+  - Direct `SKILL.md` files: dynamic
   - Role: Codex personal skills loaded by the Codex app/runtime.
 
 - `agents-skills/`

@@ -4,7 +4,7 @@ Personal Codex, agent, and Claude Code skills backup.
 
 ## Layout
 
-- `codex-skills/`: copied from `~/.codex/skills`
+- `codex-skills/`: symlink to `~/.codex/skills`
 - `agents-skills/`: copied from `~/.agents/skills`
 - `claude-skills/`: copied from `~/.claude/skills`
 

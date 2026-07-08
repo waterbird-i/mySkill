@@ -1,4 +1,0 @@
-interface:
-  display_name: "write-career-materials"
-  short_description: "把真实项目证据沉淀成职称评定、简历项目介绍和述职成稿"
-  default_prompt: "Use $write-career-materials to把我的项目证据整理成职称评定或简历项目介绍，突出关键判断、个人职责和量化结果。"
