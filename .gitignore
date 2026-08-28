@@ -3,3 +3,17 @@ node_modules/
 dist/
 build/
 coverage/
+
+# 厂内 / 含个人信息的 skill：只在本机 ~/.agents/skills 存在，禁止入公开仓
+# 统一写 **/<name>：既覆盖 agents-/claude-/comate-skills 三个根，也覆盖 omc-learned/ 这类嵌套子目录
+#（曾漏掉 claude-skills/omc-learned/baidu-intranet-access）；不带尾斜杠才能同时匹配 claude-skills 下的软链。
+**/baidu-intranet-access
+**/lofisu-identity-engine
+**/popo-dynamic-data
+**/ku-doc-manage
+**/icafe-official
+**/comate-crrules-reviewer
+**/ui-acceptance
+**/write-career-materials
+**/popo
+**/ai-tool-history-audit
